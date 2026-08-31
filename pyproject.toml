@@ -1,16 +1,16 @@
 [project]
-name = "giaminhgist-github-io"
+name = "tuananhtbbk1986.github.io"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 authors = [
-    { name = "Gia Minh Hoang", email = "hoang.giaminh0596@gmail.com" }
+    { name = "Tuan-Anh Le", email = "tuananhtbbk@gmail.com" }
 ]
 requires-python = ">=3.12"
 dependencies = []
 
 [project.scripts]
-giaminhgist-github-io = "giaminhgist_github_io:main"
+tuananhtbbk1986.github.io = "giaminhgist_github_io:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
