@@ -9,20 +9,16 @@
   'use strict';
 
   /* ---------- Site config (edit here) ---------- */
-  var SITE_TITLE = 'Gia Minh Hoang';
-  var GITHUB_URL = 'https://github.com/giaminhgist';
+  var SITE_TITLE = 'Tuan-Anh Le';
+  var GITHUB_URL = 'https://github.com/tuananhtbbk1986';
   var PUBLICATIONS_FILE = 'assets/files/publications_list.txt';
 
   // Name variants to bold in the author list (longest first so shorter
   // variants never split a longer match).
   var SELF_NAMES = [
-    'Gia Minh Hoang',
-    'Gia-Minh Hoang',
-    'Hoang Gia-Minh',
-    'Hoang Gia Minh',
-    'Minh Gia Hoang',
-    'GM Hoang',
-    'Minh Hoang'
+    'Tuan-Anh Le',
+    'Tuan Anh Le'
+  
   ];
 
   // Publication "Image ID" -> actual file in assets/images/publications/.
