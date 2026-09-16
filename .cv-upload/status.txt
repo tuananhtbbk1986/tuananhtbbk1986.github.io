@@ -1,0 +1,1 @@
+Attempting direct binary-safe upload route.
