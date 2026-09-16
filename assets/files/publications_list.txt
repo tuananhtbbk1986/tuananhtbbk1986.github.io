@@ -1,20 +1,77 @@
-
 Publications
-1.	Le Tuan-Anh, Alabay Husnu Halid, Sivarasa Anika, Gia-Minh Hoang , Ceylan Hakan. "Human-Scale Rotating Magnetic Field Delivery With Permanent Magnets Under Anatomic and Robotic Constraints.", Advanced Robotics Research, Aug 2026. https://doi.org/10.1002/adrr.70154 
+1. Nguyen L.P.*, Le T.-A.*, Shehu M.A., Shakhin Y., Do T.D. "Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields." Sensors. Accepted, 2026.
+Image ID: sensors-2026
+2. Le T.-A., Alabay H.H., Anika S., Hoang G.M., Ceylan H. "Human-Scale Rotating Magnetic Field Delivery with Permanent Magnets Under Anatomic and Robotic Constraints." Advanced Robotics Research. 2026, e70154. https://doi.org/10.1002/adrr.70154
 Image ID: 70154
-2.	Tam Dao* , Thanh T. Nguyen* , Gia Minh Hoang*, Junhyeon Park, Yunju Jo, Thach Hoang Ngoc, Diep Hong Pho, Dien Tran Minh, Emma Anh Ton, Sunjae Lee, Hyun Jin Kim, Vu Chi Dung, Jae Gwan Kim, Dongryeol Ryu. "Nuclear enlargement as a histological hallmark of skeletal muscle aging, revealed by deep learning-driven analysis and validated in inflammatory myopathies.” Aging Cell, June 2026. https://doi.org/10.1111/acel.70577. 
-Image ID: 70577
-3.	Gia Minh Hoang and Jae Gwan Kim. "High‐generalizability Deep Learning Framework for Early Detection of Mild Cognitive Impairment Progression to Alzheimer's Disease." Alzheimer's & Dementia Dec 2025. https://doi.org/10.1002/alz70856_101596 
-Image ID: 101596
-4.	Gia Minh Hoang and Jae Gwan Kim. "Explainable Deep Learning for Multi-Cohort Alzheimer's Disease Classification using MRI: Insights into Pathological Brain Regions." Alzheimer's & Dementia Dec 2025. https://doi.org/10.1002/alz70856_101859 
-Image ID: 101859
-5.	Gia Minh Hoang, Nhat Hoang, Tran Thi Hoai Thu, Hoang Tien Trong Nghia and Jae Gwan Kim. "AttCORAL: Domain-Adaptive Attention Networks for Early Alzheimer’s 3 Disease Diagnosis"." IEEE Access, June 2025. https://doi.org/10.1109/ACCESS.2025.3580780 
-Image ID: 3580780
-6.	Gia Minh Hoang, Youngjoo Lee, Jae Gwan Kim. "Deep learning with guided attention for early diagnosis of Alzheimer’s disease." Physica Scripta, Apr 2025. https://doi.org/10.1088/1402-4896/add2a6  
-Image ID: add2a6
-7.	Le Thien Phuc Nguyen* , Thien Nguyen* , Thanh-Huy Nguyen, Gia Minh Hoang, Anh Mai Vu, Ulas Bagci. "QwenVLConnector: A Fast, Unified Medical VLM Chatbot for Fine-Grained Clinical Perception and Text Generation." MICCAI 2025, FLARE Challenge. Sep 2025. https://openreview.net/forum?id=FZZyXegzeQ 
-Image ID: FZZyXegzeQ
-8.	Gia Minh Hoang, Ue-Hwan Kim, Jae Gwan Kim. "Vision transformers for the prediction of mild cognitive impairment to Alzheimer’s disease progression using midsagittal sMRI." Frontiers in Aging Neuroscience, Apr 2023. https://doi.org/10.3389/fnagi.2023.1102869 
-Image ID: 1102869
-9.	Mincheol Park* , Gia Minh Hoang* , Thien Nguyen, Eunkyung Lee, Hyun Jin Jung, Youngshik Choe, Moon Hwan Lee, Jae Youn Hwang, Jae Gwan Kim, Tae Kim. "Effects of transcranial ultrasound stimulation pulsed at 40 Hz on Aβ plaques and brain rhythms in 5× FAD mice." Translational Neurodegeneration, Dec 2021. https://doi.org/10.1186/s40035-021-00274-x
-Image ID: 00274
+3. Wang P.*, Le T.-A.* (co-first authors), Singh P., Albadawi H., Alabay H.H., Ceylan H. "Non-Survival Rat Endovascular Testbed for Early-Stage Evaluation of Untethered Magnetic Microrobots." MethodsX. 2026;16:103906. https://doi.org/10.1016/j.mex.2026.103906
+Image ID: mex-103906
+4. Nguyen S., Le T.-A., Guven M.N., Lu C., Alabay H.H., Ceylan H. "Fluoroscopic Control of a Magnetorobotic Capsule for Precision Gastrointestinal Sampling and Delivery." iScience. 2026;29(3):115007. https://doi.org/10.1016/j.isci.2026.115007
+Image ID: isci-115007
+5. Le T.-A., Alabay H.H., Singh P., Austin M.G., Urbina P.A.M., Misra S., Ceylan H. "Physiologically Adaptive Soft Millirobot for Atraumatic Endovascular Therapy." Advanced Functional Materials. 2026;36(35):e31400. https://doi.org/10.1002/adfm.202531400
+Image ID: adfm-202531400
+6. Le T.-A., Tahir M.U., Cao T.L., Yoon J. "Development of an Open-Sided Magnetic Particle Imaging System With Amplitude Modulation-Based Reconstruction." IEEE Transactions on Instrumentation and Measurement. 2025;74:1-12. https://doi.org/10.1109/TIM.2025.3568946
+Image ID: tim-3568946
+7. Do T.D., Mukhatov A., Tolebay A., Le T.-A., Pham T.T. "A Comprehensive Analysis of the Impacts of Image Resolution and Scanning Times on the Quality of MPI-Reconstructed Images." Scientific Reports. 2025;15(1):5519. https://doi.org/10.1038/s41598-025-89296-3
+Image ID: srep-89296
+8. Bui M.P., Park M., Le T.-A., Yoon J. "Real-Time 3D MPI-Based Navigation Scheme for Microrobots With Flexible Field Free Point Trajectories and Virtual FFP Intuitive Manipulation." IEEE Robotics and Automation Letters. 2024;9(12):10811-10818. https://doi.org/10.1109/LRA.2024.3474471
+Image ID: lra-3474471
+9. Alabay H.H., Le T.-A., Ceylan H. "X-Ray Fluoroscopy Guided Localization and Steering of Miniature Robots Using Virtual Reality Enhancement." Frontiers in Robotics and AI. 2024;11:1495445. https://doi.org/10.3389/frobt.2024.1495445
+Image ID: frobt-1495445
+10. Le T.-A., Bui M.P., Hadadian Y., Gadelmowla K.M., Oh S., Im C., Hahn S., Yoon J. "Toward Human-Scale Magnetic Particle Imaging: Development of the First System With Superconductor-Based Selection Coils." IEEE Transactions on Medical Imaging. 2024;43(12):4266-4280. https://doi.org/10.1109/TMI.2024.3419427
+Image ID: tmi-3419427
+11. Nguyen K.T., Bui M.P., Le T.-A., Kim S.J., Kim H.Y., Yoon J., Park J.O., Kim J. "Magnetic Particle Image Scanner Based on Asymmetric Core-Filled Electromagnetic Actuator." Computers in Biology and Medicine. 2024;169:107864. https://doi.org/10.1016/j.compbiomed.2023.107864
+Image ID: cbm-107864
+12. Mukhatov A., Le T.-A., Do T.D., Pham T.T. "Universal Behavior of the Image Resolution for Different Scanning Trajectories." Applied System Innovation. 2023;6(6):103. https://doi.org/10.3390/asi6060103
+Image ID: asi-103
+13. Park M., Oh S., Le T.-A., Yoon J. "Aggregation Volume Estimator-Based Offline Programming Guidance of Magnetic Nanoparticles in the Realistic Rat-Brain Vasculature Model." Advanced Intelligent Systems. 2023;5(9):2300128. https://doi.org/10.1002/aisy.202300128
+Image ID: aisy-2300128
+14. Le T.-A., Hadadian Y., Yoon J. "A Prediction Model for Magnetic Particle Imaging-Based Magnetic Hyperthermia Applied to a Brain Tumor Model." Computer Methods and Programs in Biomedicine. 2023;235:107546. https://doi.org/10.1016/j.cmpb.2023.107546
+Image ID: cmpb-107546
+15. Mukhatov A., Le T.-A., Pham T.T., Do T.D. "A Comprehensive Review on Magnetic Imaging Techniques for Biomedical Applications." Nano Select. 2023;4(3):213-230. https://doi.org/10.1002/nano.202200219
+Image ID: nano-202200219
+16. Nguyen K.T., Bui M.P., Le T.-A., Nguyen V.D., Yoon J., Park J.O., Kim J. "A Magnetic Particle Imaging in Anisotropic Magnetic Manipulation Platform." Measurement. 2023;208:112391. https://doi.org/10.1016/j.measurement.2022.112391
+Image ID: measurement-112391
+17. Le T.-A., Bui M.P., Yoon J. "Development of Small-Rabbit-Scale Three-Dimensional Magnetic Particle Imaging System With Amplitude-Modulation-Based Reconstruction." IEEE Transactions on Industrial Electronics. 2023;70(3):3167-3177. https://doi.org/10.1109/TIE.2022.3169715
+Image ID: tie-3169715
+18. Park M., Le T.-A., Hadadian Y., Yoon J. "Effects of Major Guidance Parameters on Aggregated Magnetic Particles During Magnetic Drug Targeting." Journal of Magnetism and Magnetic Materials. 2022;564:170110. https://doi.org/10.1016/j.jmmm.2022.170110
+Image ID: jmmm-170110
+19. Park M., Le T.-A., Yoon J. "Offline Programming Guidance for Swarm Steering of Micro-/Nano Magnetic Particles in a Dynamic Multichannel Vascular Model." IEEE Robotics and Automation Letters. 2022;7(2):3977-3984. https://doi.org/10.1109/LRA.2022.3148789
+Image ID: lra-3148789
+20. Bui M.P.*, Le T.-A.* (co-first authors), Yoon J. "A Magnetic Particle Imaging-Based Navigation Platform for Magnetic Nanoparticles Using Interactive Manipulation of a Virtual Field Free Point to Ensure Targeted Drug Delivery." IEEE Transactions on Industrial Electronics. 2021;68(12):12493-12503. https://doi.org/10.1109/TIE.2020.3039219
+Image ID: tie-3039219
+21. Hoshiar A.K., Javan S.D., Le T.-A., Yazdi M.R.H., Yoon J. "Studies on Aggregated Nanoparticles Steering During Deep Brain Membrane Crossing." Nanomaterials. 2021;11(10):2754. https://doi.org/10.3390/nano11102754
+Image ID: nano-2754
+22. Cao T.L., Le T.-A., Hadadian Y., Yoon J. "Theoretical Analysis for Using Pulsed Heating Power in Magnetic Hyperthermia Therapy of Breast Cancer." International Journal of Molecular Sciences. 2021;22(16):8895. https://doi.org/10.3390/ijms22168895
+Image ID: ijms-8895
+23. Darwish M.S.A., Kim H., Bui M.P., Le T.-A., Lee H., Ryu C., Lee J.Y., Yoon J. "The Heating Efficiency and Imaging Performance of Magnesium Iron Oxide@Tetramethyl Ammonium Hydroxide Nanoparticles for Biomedical Applications." Nanomaterials. 2021;11(5):1096. https://doi.org/10.3390/nano11051096
+Image ID: nano-1096
+24. Le T.-A., Bui M.P., Yoon J. "Electromagnetic Actuation System for Focused Capturing of Magnetic Particles With a Half of Static Saddle Potential Energy Configuration." IEEE Transactions on Biomedical Engineering. 2021;68(3):869-880. https://doi.org/10.1109/TBME.2020.3018266
+Image ID: tbme-3018266
+25. Le T.-A., Bui M.P., Yoon J. "Optimal Design and Implementation of a Novel Two-Dimensional Electromagnetic Navigation System That Allows Focused Heating of Magnetic Nanoparticles." IEEE/ASME Transactions on Mechatronics. 2021;26(1):551-562. https://doi.org/10.1109/TMECH.2020.3041729
+Image ID: tmech-3041729
+26. Park M., Le T.-A., Eizad A., Yoon J. "A Novel Shared Guidance Scheme for Intelligent Haptic Interaction Based Swarm Control of Magnetic Nanoparticles in Blood Vessels." IEEE Access. 2020;8:106714-106725. https://doi.org/10.1109/ACCESS.2020.3000329
+Image ID: access-3000329
+27. Hoshiar A.K., Le T.-A., Valdastri P., Yoon J. "Swarm of Magnetic Nanoparticles Steering in Multi-Bifurcation Vessels Under Fluid Flow." Journal of Micro-Bio Robotics. 2020;16(2):137-145. https://doi.org/10.1007/s12213-020-00127-2
+Image ID: jmbr-00127
+28. Bui M.P., Le T.-A., Yoon J. "Development of Rat-Scale Magnetic Particle Spectroscopy for Functional Magnetic Particle Imaging." IEEE Magnetics Letters. 2020;11:1-5. https://doi.org/10.1109/LMAG.2020.2968407
+Image ID: lmag-2968407
+29. Le T.-A., Bui M.P., Yoon J. "Theoretical Analysis for Wireless Magnetothermal Deep Brain Stimulation Using Commercial Nanoparticles." International Journal of Molecular Sciences. 2019;20(12):2873. https://doi.org/10.3390/ijms20122873
+Image ID: ijms-2873
+30. Zhang X.*, Le T.-A.* (co-first authors), Hoshiar A.K., Yoon J. "A Soft Magnetic Core Can Enhance Navigation Performance of Magnetic Nanoparticles in Targeted Drug Delivery." IEEE/ASME Transactions on Mechatronics. 2018;23(4):1573-1584. https://doi.org/10.1109/TMECH.2018.2843820
+Image ID: tmech-2843820
+31. Le T.-A., Bui M.P., Yoon J. "An Optimal Design of an Electromagnetic Actuator for Targeting Magnetic Micro-/Nano-Carriers in a Desired Region." IEEE Transactions on Magnetics. 2018;54(11):1-5. https://doi.org/10.1109/TMAG.2018.2830774
+Image ID: tmag-2830774
+32. Hoshiar A.K., Le T.-A., Amin F.U., Kim M.O., Yoon J. "A Novel Magnetic Actuation Scheme to Disaggregate Nanoparticles and Enhance Passage Across the Blood-Brain Barrier." Nanomaterials. 2018;8(1):3. https://doi.org/10.3390/nano8010003
+Image ID: nano-0003
+33. Hamdipoor V., Afzal M.R., Le T.-A., Yoon J. "Haptic-Based Manipulation Scheme of Magnetic Nanoparticles in a Multi-Branch Blood Vessel for Targeted Drug Delivery." Micromachines. 2018;9(1):14. https://doi.org/10.3390/mi9010014
+Image ID: mi-0014
+34. Le T.-A., Zhang X., Hoshiar A.K., Yoon J. "Real-Time Two-Dimensional Magnetic Particle Imaging for Electromagnetic Navigation in Targeted Drug Delivery." Sensors. 2017;17(9):2050. https://doi.org/10.3390/s17092050
+Image ID: sensors-2050
+35. Le T.-A., Zhang X., Hoshiar A.K., Kim M.O., Yoon J. "Simulation Studies of a Novel Electromagnetic Actuation Scheme for Focusing Magnetic Micro/Nano-Carriers Into a Deep Target Region." AIP Advances. 2017;7(5):056724. https://doi.org/10.1063/1.4977018
+Image ID: aip-4977018
+36. Zhang X., Le T.-A., Yoon J. "Development of a Real Time Imaging-Based Guidance System of Magnetic Nanoparticles for Targeted Drug Delivery." Journal of Magnetism and Magnetic Materials. 2017;427:345-351. https://doi.org/10.1016/j.jmmm.2016.10.056
+Image ID: jmmm-2016-10-056
+37. Hoshiar A.K., Le T.-A., Amin F.U., Kim M.O., Yoon J. "Studies of Aggregated Nanoparticles Steering During Magnetic-Guided Drug Delivery in the Blood Vessels." Journal of Magnetism and Magnetic Materials. 2017;427:181-187. https://doi.org/10.1016/j.jmmm.2016.11.016
+Image ID: jmmm-2016-11-016
+38. Le T.-A., Asl H.J., Do T.D., Kim M.O., Yoon J. "Band-Stop Filter Analysis and Design for 1D Magnetic Particle Imaging Hybrid System." Journal of Nanoscience and Nanotechnology. 2016;16(8):8492-8495. https://doi.org/10.1166/jnn.2016.12520
+Image ID: jnn-12520
