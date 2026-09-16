@@ -1,0 +1,15 @@
+{
+  "connected": false,
+  "updatedAt": null,
+  "summary": {
+    "visitors": 0,
+    "pageviews": 0,
+    "pagesPerVisit": 0,
+    "avgDurationSeconds": 0,
+    "visitorsNote": "Waiting for analytics connection",
+    "pageviewsNote": "Waiting for analytics connection"
+  },
+  "countries": [],
+  "traffic": [],
+  "popularPages": []
+}
