@@ -1,52 +1,53 @@
 IMAGE FILENAME GUIDE
-Upload JPG images to: assets/images/publications/
+Upload all JPG images to: assets/images/publications/
+Naming rule: journal-or-conference_year_DOI-tail.jpg
 Recommended format: JPG, landscape or square, at least 800 px wide.
 
 JOURNAL PUBLICATIONS
-journal-01.jpg — Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields
-journal-02.jpg — Human-Scale Rotating Magnetic Field Delivery with Permanent Magnets Under Anatomic and Robotic Constraints
-journal-03.jpg — Non-Survival Rat Endovascular Testbed for Early-Stage Evaluation of Untethered Magnetic Microrobots
-journal-04.jpg — Fluoroscopic Control of a Magnetorobotic Capsule for Precision Gastrointestinal Sampling and Delivery
-journal-05.jpg — Physiologically Adaptive Soft Millirobot for Atraumatic Endovascular Therapy
-journal-06.jpg — Development of an Open-Sided Magnetic Particle Imaging System With Amplitude Modulation-Based Reconstruction
-journal-07.jpg — A Comprehensive Analysis of the Impacts of Image Resolution and Scanning Times on the Quality of MPI-Reconstructed Images
-journal-08.jpg — Real-Time 3D MPI-Based Navigation Scheme for Microrobots With Flexible Field Free Point Trajectories and Virtual FFP Intuitive Manipulation
-journal-09.jpg — X-Ray Fluoroscopy Guided Localization and Steering of Miniature Robots Using Virtual Reality Enhancement
-journal-10.jpg — Toward Human-Scale Magnetic Particle Imaging: Development of the First System With Superconductor-Based Selection Coils
-journal-11.jpg — Magnetic Particle Image Scanner Based on Asymmetric Core-Filled Electromagnetic Actuator
-journal-12.jpg — Universal Behavior of the Image Resolution for Different Scanning Trajectories
-journal-13.jpg — Aggregation Volume Estimator-Based Offline Programming Guidance of Magnetic Nanoparticles in the Realistic Rat-Brain Vasculature Model
-journal-14.jpg — A Prediction Model for Magnetic Particle Imaging-Based Magnetic Hyperthermia Applied to a Brain Tumor Model
-journal-15.jpg — A Comprehensive Review on Magnetic Imaging Techniques for Biomedical Applications
-journal-16.jpg — A Magnetic Particle Imaging in Anisotropic Magnetic Manipulation Platform
-journal-17.jpg — Development of Small-Rabbit-Scale Three-Dimensional Magnetic Particle Imaging System With Amplitude-Modulation-Based Reconstruction
-journal-18.jpg — Effects of Major Guidance Parameters on Aggregated Magnetic Particles During Magnetic Drug Targeting
-journal-19.jpg — Offline Programming Guidance for Swarm Steering of Micro-/Nano Magnetic Particles in a Dynamic Multichannel Vascular Model
-journal-20.jpg — A Magnetic Particle Imaging-Based Navigation Platform for Magnetic Nanoparticles Using Interactive Manipulation of a Virtual Field Free Point to Ensure Targeted Drug Delivery
-journal-21.jpg — Studies on Aggregated Nanoparticles Steering During Deep Brain Membrane Crossing
-journal-22.jpg — Theoretical Analysis for Using Pulsed Heating Power in Magnetic Hyperthermia Therapy of Breast Cancer
-journal-23.jpg — The Heating Efficiency and Imaging Performance of Magnesium Iron Oxide@Tetramethyl Ammonium Hydroxide Nanoparticles for Biomedical Applications
-journal-24.jpg — Electromagnetic Actuation System for Focused Capturing of Magnetic Particles With a Half of Static Saddle Potential Energy Configuration
-journal-25.jpg — Optimal Design and Implementation of a Novel Two-Dimensional Electromagnetic Navigation System That Allows Focused Heating of Magnetic Nanoparticles
-journal-26.jpg — A Novel Shared Guidance Scheme for Intelligent Haptic Interaction Based Swarm Control of Magnetic Nanoparticles in Blood Vessels
-journal-27.jpg — Swarm of Magnetic Nanoparticles Steering in Multi-Bifurcation Vessels Under Fluid Flow
-journal-28.jpg — Development of Rat-Scale Magnetic Particle Spectroscopy for Functional Magnetic Particle Imaging
-journal-29.jpg — Theoretical Analysis for Wireless Magnetothermal Deep Brain Stimulation Using Commercial Nanoparticles
-journal-30.jpg — A Soft Magnetic Core Can Enhance Navigation Performance of Magnetic Nanoparticles in Targeted Drug Delivery
-journal-31.jpg — An Optimal Design of an Electromagnetic Actuator for Targeting Magnetic Micro-/Nano-Carriers in a Desired Region
-journal-32.jpg — A Novel Magnetic Actuation Scheme to Disaggregate Nanoparticles and Enhance Passage Across the Blood-Brain Barrier
-journal-33.jpg — Haptic-Based Manipulation Scheme of Magnetic Nanoparticles in a Multi-Branch Blood Vessel for Targeted Drug Delivery
-journal-34.jpg — Real-Time Two-Dimensional Magnetic Particle Imaging for Electromagnetic Navigation in Targeted Drug Delivery
-journal-35.jpg — Simulation Studies of a Novel Electromagnetic Actuation Scheme for Focusing Magnetic Micro/Nano-Carriers Into a Deep Target Region
-journal-36.jpg — Development of a Real Time Imaging-Based Guidance System of Magnetic Nanoparticles for Targeted Drug Delivery
-journal-37.jpg — Studies of Aggregated Nanoparticles Steering During Magnetic-Guided Drug Delivery in the Blood Vessels
-journal-38.jpg — Band-Stop Filter Analysis and Design for 1D Magnetic Particle Imaging Hybrid System
+sensors_2026_mpi-resolution.jpg — Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields — DOI not assigned yet
+advanced-robotics-research_2026_70154.jpg — Human-Scale Rotating Magnetic Field Delivery with Permanent Magnets Under Anatomic and Robotic Constraints — DOI 10.1002/adrr.70154
+methodsx_2026_103906.jpg — Non-Survival Rat Endovascular Testbed for Early-Stage Evaluation of Untethered Magnetic Microrobots — DOI 10.1016/j.mex.2026.103906
+iscience_2026_115007.jpg — Fluoroscopic Control of a Magnetorobotic Capsule for Precision Gastrointestinal Sampling and Delivery — DOI 10.1016/j.isci.2026.115007
+advanced-functional-materials_2026_31400.jpg — Physiologically Adaptive Soft Millirobot for Atraumatic Endovascular Therapy — DOI 10.1002/adfm.202531400
+ieee-transactions-instrumentation-measurement_2025_3568946.jpg — Development of an Open-Sided Magnetic Particle Imaging System With Amplitude Modulation-Based Reconstruction — DOI 10.1109/TIM.2025.3568946
+scientific-reports_2025_89296.jpg — A Comprehensive Analysis of the Impacts of Image Resolution and Scanning Times on the Quality of MPI-Reconstructed Images — DOI 10.1038/s41598-025-89296-3
+ieee-robotics-automation-letters_2024_3474471.jpg — Real-Time 3D MPI-Based Navigation Scheme for Microrobots With Flexible Field Free Point Trajectories and Virtual FFP Intuitive Manipulation — DOI 10.1109/LRA.2024.3474471
+frontiers-robotics-ai_2024_1495445.jpg — X-Ray Fluoroscopy Guided Localization and Steering of Miniature Robots Using Virtual Reality Enhancement — DOI 10.3389/frobt.2024.1495445
+ieee-transactions-medical-imaging_2024_3419427.jpg — Toward Human-Scale Magnetic Particle Imaging: Development of the First System With Superconductor-Based Selection Coils — DOI 10.1109/TMI.2024.3419427
+computers-biology-medicine_2024_107864.jpg — Magnetic Particle Image Scanner Based on Asymmetric Core-Filled Electromagnetic Actuator — DOI 10.1016/j.compbiomed.2023.107864
+applied-system-innovation_2023_0103.jpg — Universal Behavior of the Image Resolution for Different Scanning Trajectories — DOI 10.3390/asi6060103
+advanced-intelligent-systems_2023_2300128.jpg — Aggregation Volume Estimator-Based Offline Programming Guidance of Magnetic Nanoparticles in the Realistic Rat-Brain Vasculature Model — DOI 10.1002/aisy.202300128
+computer-methods-programs-biomedicine_2023_107546.jpg — A Prediction Model for Magnetic Particle Imaging-Based Magnetic Hyperthermia Applied to a Brain Tumor Model — DOI 10.1016/j.cmpb.2023.107546
+nano-select_2023_202200219.jpg — A Comprehensive Review on Magnetic Imaging Techniques for Biomedical Applications — DOI 10.1002/nano.202200219
+measurement_2023_112391.jpg — A Magnetic Particle Imaging in Anisotropic Magnetic Manipulation Platform — DOI 10.1016/j.measurement.2022.112391
+ieee-transactions-industrial-electronics_2023_3169715.jpg — Development of Small-Rabbit-Scale Three-Dimensional Magnetic Particle Imaging System With Amplitude-Modulation-Based Reconstruction — DOI 10.1109/TIE.2022.3169715
+journal-magnetism-magnetic-materials_2022_170110.jpg — Effects of Major Guidance Parameters on Aggregated Magnetic Particles During Magnetic Drug Targeting — DOI 10.1016/j.jmmm.2022.170110
+ieee-robotics-automation-letters_2022_3148789.jpg — Offline Programming Guidance for Swarm Steering of Micro-/Nano Magnetic Particles in a Dynamic Multichannel Vascular Model — DOI 10.1109/LRA.2022.3148789
+ieee-transactions-industrial-electronics_2021_3039219.jpg — A Magnetic Particle Imaging-Based Navigation Platform for Magnetic Nanoparticles Using Interactive Manipulation of a Virtual Field Free Point to Ensure Targeted Drug Delivery — DOI 10.1109/TIE.2020.3039219
+nanomaterials_2021_2754.jpg — Studies on Aggregated Nanoparticles Steering During Deep Brain Membrane Crossing — DOI 10.3390/nano11102754
+international-journal-molecular-sciences_2021_8895.jpg — Theoretical Analysis for Using Pulsed Heating Power in Magnetic Hyperthermia Therapy of Breast Cancer — DOI 10.3390/ijms22168895
+nanomaterials_2021_1096.jpg — The Heating Efficiency and Imaging Performance of Magnesium Iron Oxide@Tetramethyl Ammonium Hydroxide Nanoparticles for Biomedical Applications — DOI 10.3390/nano11051096
+ieee-transactions-biomedical-engineering_2021_3018266.jpg — Electromagnetic Actuation System for Focused Capturing of Magnetic Particles With a Half of Static Saddle Potential Energy Configuration — DOI 10.1109/TBME.2020.3018266
+ieee-asme-transactions-mechatronics_2021_3041729.jpg — Optimal Design and Implementation of a Novel Two-Dimensional Electromagnetic Navigation System That Allows Focused Heating of Magnetic Nanoparticles — DOI 10.1109/TMECH.2020.3041729
+ieee-access_2020_3000329.jpg — A Novel Shared Guidance Scheme for Intelligent Haptic Interaction Based Swarm Control of Magnetic Nanoparticles in Blood Vessels — DOI 10.1109/ACCESS.2020.3000329
+journal-micro-bio-robotics_2020_00127.jpg — Swarm of Magnetic Nanoparticles Steering in Multi-Bifurcation Vessels Under Fluid Flow — DOI 10.1007/s12213-020-00127-2
+ieee-magnetics-letters_2020_2968407.jpg — Development of Rat-Scale Magnetic Particle Spectroscopy for Functional Magnetic Particle Imaging — DOI 10.1109/LMAG.2020.2968407
+international-journal-molecular-sciences_2019_2873.jpg — Theoretical Analysis for Wireless Magnetothermal Deep Brain Stimulation Using Commercial Nanoparticles — DOI 10.3390/ijms20122873
+ieee-asme-transactions-mechatronics_2018_2843820.jpg — A Soft Magnetic Core Can Enhance Navigation Performance of Magnetic Nanoparticles in Targeted Drug Delivery — DOI 10.1109/TMECH.2018.2843820
+ieee-transactions-magnetics_2018_2830774.jpg — An Optimal Design of an Electromagnetic Actuator for Targeting Magnetic Micro-/Nano-Carriers in a Desired Region — DOI 10.1109/TMAG.2018.2830774
+nanomaterials_2018_0003.jpg — A Novel Magnetic Actuation Scheme to Disaggregate Nanoparticles and Enhance Passage Across the Blood-Brain Barrier — DOI 10.3390/nano8010003
+micromachines_2018_0014.jpg — Haptic-Based Manipulation Scheme of Magnetic Nanoparticles in a Multi-Branch Blood Vessel for Targeted Drug Delivery — DOI 10.3390/mi9010014
+sensors_2017_2050.jpg — Real-Time Two-Dimensional Magnetic Particle Imaging for Electromagnetic Navigation in Targeted Drug Delivery — DOI 10.3390/s17092050
+aip-advances_2017_4977018.jpg — Simulation Studies of a Novel Electromagnetic Actuation Scheme for Focusing Magnetic Micro/Nano-Carriers Into a Deep Target Region — DOI 10.1063/1.4977018
+journal-magnetism-magnetic-materials_2017_10-056.jpg — Development of a Real Time Imaging-Based Guidance System of Magnetic Nanoparticles for Targeted Drug Delivery — DOI 10.1016/j.jmmm.2016.10.056
+journal-magnetism-magnetic-materials_2017_11-016.jpg — Studies of Aggregated Nanoparticles Steering During Magnetic-Guided Drug Delivery in the Blood Vessels — DOI 10.1016/j.jmmm.2016.11.016
+journal-nanoscience-nanotechnology_2016_12520.jpg — Band-Stop Filter Analysis and Design for 1D Magnetic Particle Imaging Hybrid System — DOI 10.1166/jnn.2016.12520
 
 CONFERENCE PUBLICATIONS
-conference-01.jpg — First Human Brain-Scale Magnetic Particle Imaging System with Superconductor — IJMPI / IWMPI 2023
-conference-02.jpg — Design of an MPI-Based Magnetic Heating Device for Hyperthermia Cancer Treatment — ICROS 2021
-conference-03.jpg — Design of a Rabbit-Scale 3D Magnetic Particle Imaging System with Amplitude Modulation — IJMPI / IWMPI 2020
-conference-04.jpg — An Electromagnetic Navigation System with Real-Time 2D Magnetic Particle Imaging for Targeted Drug Delivery — IROS 2017
-conference-05.jpg — Development of a Magnetic Nanoparticle Guidance System for Interleaved Actuation and MPI-Based Monitoring — IROS 2016
-conference-06.jpg — A Modified Functionalized Magnetic Field for Nanoparticle Guidance in Magnetic Drug Targeting — URAI 2016
-conference-07.jpg — Hardware Implementation of a 1D MPI Hybrid System for Targeted Drug Delivery — IWMPI 2015
+ijmpi-iwmpi_2023_2303032.jpg — First Human Brain-Scale Magnetic Particle Imaging System with Superconductor — DOI 10.18416/ijmpi.2023.2303032
+icros_2021_117-118.jpg — Design of an MPI-Based Magnetic Heating Device for Hyperthermia Cancer Treatment — Proceedings pp. 117-118, no DOI listed
+ijmpi-iwmpi_2020_2009067.jpg — Design of a Rabbit-Scale 3D Magnetic Particle Imaging System with Amplitude Modulation — DOI 10.18416/IJMPI.2020.2009067
+iros_2017_8206007.jpg — An Electromagnetic Navigation System with Real-Time 2D Magnetic Particle Imaging for Targeted Drug Delivery — DOI 10.1109/IROS.2017.8206007
+iros_2016_7759776.jpg — Development of a Magnetic Nanoparticle Guidance System for Interleaved Actuation and MPI-Based Monitoring — DOI 10.1109/IROS.2016.7759776
+urai_2016_7734089.jpg — A Modified Functionalized Magnetic Field for Nanoparticle Guidance in Magnetic Drug Targeting — DOI 10.1109/URAI.2016.7734089
+iwmpi_2015_7107010.jpg — Hardware Implementation of a 1D MPI Hybrid System for Targeted Drug Delivery — DOI 10.1109/IWMPI.2015.7107010
