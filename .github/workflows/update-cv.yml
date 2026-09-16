@@ -4,8 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '.cv-upload/**'
-      - '.github/workflows/update-cv.yml'
+      - '.cv-upload/trigger.txt'
 
 permissions:
   contents: write
