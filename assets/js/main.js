@@ -12,6 +12,61 @@
   var SELF_NAMES = ['Tuan-Anh Le', 'Tuan Anh Le', 'Le T.-A.', 'T.-A. Le'];
   var PLACEHOLDER_IMAGE = 'assets/images/publications/placeholder.svg';
 
+  var JOURNAL_IMAGES = {
+    1:'sensors_2026_mpi-resolution.jpg',
+    2:'advanced-robotics-research_2026_70154.jpg',
+    3:'methodsx_2026_103906.jpg',
+    4:'iscience_2026_115007.jpg',
+    5:'advanced-functional-materials_2026_31400.jpg',
+    6:'ieee-transactions-instrumentation-measurement_2025_3568946.jpg',
+    7:'scientific-reports_2025_89296.jpg',
+    8:'ieee-robotics-automation-letters_2024_3474471.jpg',
+    9:'frontiers-robotics-ai_2024_1495445.jpg',
+    10:'ieee-transactions-medical-imaging_2024_3419427.jpg',
+    11:'computers-biology-medicine_2024_107864.jpg',
+    12:'applied-system-innovation_2023_0103.jpg',
+    13:'advanced-intelligent-systems_2023_2300128.jpg',
+    14:'computer-methods-programs-biomedicine_2023_107546.jpg',
+    15:'nano-select_2023_202200219.jpg',
+    16:'measurement_2023_112391.jpg',
+    17:'ieee-transactions-industrial-electronics_2023_3169715.jpg',
+    18:'journal-magnetism-magnetic-materials_2022_170110.jpg',
+    19:'ieee-robotics-automation-letters_2022_3148789.jpg',
+    20:'ieee-transactions-industrial-electronics_2021_3039219.jpg',
+    21:'nanomaterials_2021_2754.jpg',
+    22:'international-journal-molecular-sciences_2021_8895.jpg',
+    23:'nanomaterials_2021_1096.jpg',
+    24:'ieee-transactions-biomedical-engineering_2021_3018266.jpg',
+    25:'ieee-asme-transactions-mechatronics_2021_3041729.jpg',
+    26:'ieee-access_2020_3000329.jpg',
+    27:'journal-micro-bio-robotics_2020_00127.jpg',
+    28:'ieee-magnetics-letters_2020_2968407.jpg',
+    29:'international-journal-molecular-sciences_2019_2873.jpg',
+    30:'ieee-asme-transactions-mechatronics_2018_2843820.jpg',
+    31:'ieee-transactions-magnetics_2018_2830774.jpg',
+    32:'nanomaterials_2018_0003.jpg',
+    33:'micromachines_2018_0014.jpg',
+    34:'sensors_2017_2050.jpg',
+    35:'aip-advances_2017_4977018.jpg',
+    36:'journal-magnetism-magnetic-materials_2017_10-056.jpg',
+    37:'journal-magnetism-magnetic-materials_2017_11-016.jpg',
+    38:'journal-nanoscience-nanotechnology_2016_12520.jpg'
+  };
+
+  var CONFERENCE_IMAGES = {
+    1:'ijmpi-iwmpi_2023_2303032.jpg',
+    2:'icros_2021_117-118.jpg',
+    3:'ijmpi-iwmpi_2020_2009067.jpg',
+    4:'iros_2017_8206007.jpg',
+    5:'iros_2016_7759776.jpg',
+    6:'urai_2016_7734089.jpg',
+    7:'iwmpi_2015_7107010.jpg'
+  };
+
+  var LEGACY_IMAGE_FILES = {
+    'sensors-2026':'sensors-2026.jpg','70154':'70154.jpg','mex-103906':'mex-103906.jpg','isci-115007':'isci-115007.jpg','adfm-202531400':'adfm-202531400.jpg','tim-3568946':'tim-3568946.jpg','srep-89296':'srep-89296.jpg','lra-3474471':'lra-3474471.jpg','frobt-1495445':'frobt-1495445.jpg','tmi-3419427':'tmi-3419427.jpg','cbm-107864':'cbm-107864.jpg','asi-103':'asi-103.jpg','aisy-2300128':'aisy-2300128.jpg','cmpb-107546':'cmpb-107546.jpg','nano-202200219':'nano-202200219.jpg','measurement-112391':'measurement-112391.jpg','tie-3169715':'tie-3169715.jpg','jmmm-170110':'jmmm-170110.jpg','lra-3148789':'lra-3148789.jpg','tie-3039219':'tie-3039219.jpg','nano-2754':'nano-2754.jpg','ijms-8895':'ijms-8895.jpg','nano-1096':'nano-1096.jpg','tbme-3018266':'tbme-3018266.jpg','tmech-3041729':'tmech-3041729.jpg','access-3000329':'access-3000329.jpg','jmbr-00127':'jmbr-00127.jpg','lmag-2968407':'lmag-2968407.jpg','ijms-2873':'ijms-2873.jpg','tmech-2843820':'tmech-2843820.jpg','tmag-2830774':'tmag-2830774.jpg','nano-0003':'nano-0003.jpg','mi-0014':'mi-0014.jpg','sensors-2050':'sensors-2050.jpg','aip-4977018':'aip-4977018.jpg','jmmm-2016-10-056':'jmmm-2016-10-056.jpg','jmmm-2016-11-016':'jmmm-2016-11-016.jpg','jnn-12520':'jnn-12520.jpg'
+  };
+
   var NAV_ITEMS = [
     { href: 'index.html', label: 'About' },
     { href: 'publications.html', label: 'Publications' },
@@ -28,20 +83,14 @@
 
   function injectHeader() {
     var title = document.querySelector('.site-title');
-    if (title) {
-      title.href = 'index.html';
-      title.textContent = SITE_TITLE;
-    }
-
+    if (title) { title.href = 'index.html'; title.textContent = SITE_TITLE; }
     var nav = document.querySelector('.site-nav');
     if (!nav) return;
     nav.textContent = '';
-
     var active = currentPage();
     NAV_ITEMS.forEach(function (item) {
       var a = document.createElement('a');
-      a.href = item.href;
-      a.textContent = item.label;
+      a.href = item.href; a.textContent = item.label;
       if (item.href === active) a.className = 'active';
       nav.appendChild(a);
     });
@@ -51,253 +100,101 @@
     var footer = document.querySelector('.site-footer');
     if (!footer) return;
     footer.textContent = '';
-
     var p = document.createElement('p');
     p.appendChild(document.createTextNode('© ' + new Date().getFullYear() + ' ' + SITE_TITLE + ' · '));
-
     var gh = document.createElement('a');
-    gh.href = GITHUB_URL;
-    gh.target = '_blank';
-    gh.rel = 'noopener';
-    gh.textContent = 'GitHub';
+    gh.href = GITHUB_URL; gh.target = '_blank'; gh.rel = 'noopener'; gh.textContent = 'GitHub';
     p.appendChild(gh);
-
     p.appendChild(document.createTextNode(' · Built with plain HTML/CSS/JS'));
     footer.appendChild(p);
   }
 
-  function stripTrailingPunctuation(s) {
-    return s.replace(/[.,;:]+$/, '');
-  }
+  function stripTrailingPunctuation(s) { return s.replace(/[.,;:]+$/, ''); }
 
   function parseCitation(text) {
     var t = text.trim();
     var url = null;
     var urlMatch = t.match(/(https?:\/\/\S+)/);
-
-    if (urlMatch) {
-      url = stripTrailingPunctuation(urlMatch[1]);
-      t = t.slice(0, urlMatch.index).trim();
-    }
-
+    if (urlMatch) { url = stripTrailingPunctuation(urlMatch[1]); t = t.slice(0, urlMatch.index).trim(); }
     var open = t.indexOf('"');
     var close = open !== -1 ? t.indexOf('"', open + 1) : -1;
-    var authors;
-    var title = null;
-    var venue = null;
-
+    var authors, title = null, venue = null;
     if (open !== -1 && close > open) {
       authors = t.slice(0, open).replace(/[.,;:\s]+$/, '').trim();
       title = t.slice(open + 1, close).trim();
       venue = t.slice(close + 1).replace(/^[."\s,;:]+/, '').trim();
-    } else {
-      authors = t.trim();
-    }
-
+    } else authors = t.trim();
     var yearMatch = t.match(/\b(19|20)\d{2}\b/);
-    return {
-      authors: authors,
-      title: title,
-      venue: venue,
-      year: yearMatch ? yearMatch[0] : null,
-      url: url
-    };
+    return { authors:authors, title:title, venue:venue, year:yearMatch ? yearMatch[0] : null, url:url };
   }
 
   function parsePublications(raw) {
-    var lines = raw.split(/\r?\n/);
-    var entries = [];
-    var current = null;
-
+    var lines = raw.split(/\r?\n/), entries = [], current = null;
     lines.forEach(function (line) {
       var num = line.match(/^\s*(\d+)\.\s*(.*)$/);
       if (num) {
-        current = {
-          number: parseInt(num[1], 10),
-          text: num[2],
-          legacyImageId: null
-        };
-        entries.push(current);
-        return;
+        current = { number:parseInt(num[1],10), text:num[2], legacyImageId:null };
+        entries.push(current); return;
       }
-
       var img = line.match(/^\s*Image ID:\s*(\S+)/);
       if (img && current) current.legacyImageId = img[1];
     });
-
     return entries;
   }
 
   function boldSelfNames(container, text) {
     var spans = [];
-
     SELF_NAMES.forEach(function (name) {
-      var lowerText = text.toLowerCase();
-      var lowerName = name.toLowerCase();
-      var idx = 0;
-      var pos;
-
-      while ((pos = lowerText.indexOf(lowerName, idx)) !== -1) {
-        spans.push([pos, pos + name.length]);
-        idx = pos + name.length;
-      }
+      var lowerText=text.toLowerCase(), lowerName=name.toLowerCase(), idx=0, pos;
+      while ((pos=lowerText.indexOf(lowerName,idx))!==-1) { spans.push([pos,pos+name.length]); idx=pos+name.length; }
     });
-
-    if (!spans.length) {
-      container.textContent = text;
-      return;
-    }
-
-    spans.sort(function (a, b) { return a[0] - b[0] || b[1] - a[1]; });
-    var merged = [];
-    spans.forEach(function (s) {
-      var last = merged[merged.length - 1];
-      if (!last || s[0] > last[1]) merged.push([s[0], s[1]]);
-      else if (s[1] > last[1]) last[1] = s[1];
-    });
-
-    var cursor = 0;
-    merged.forEach(function (s) {
-      if (s[0] > cursor) container.appendChild(document.createTextNode(text.slice(cursor, s[0])));
-      var b = document.createElement('b');
-      b.textContent = text.slice(s[0], s[1]);
-      container.appendChild(b);
-      cursor = s[1];
-    });
-
-    if (cursor < text.length) container.appendChild(document.createTextNode(text.slice(cursor)));
+    if (!spans.length) { container.textContent=text; return; }
+    spans.sort(function(a,b){ return a[0]-b[0] || b[1]-a[1]; });
+    var merged=[];
+    spans.forEach(function(s){ var last=merged[merged.length-1]; if(!last||s[0]>last[1]) merged.push([s[0],s[1]]); else if(s[1]>last[1]) last[1]=s[1]; });
+    var cursor=0;
+    merged.forEach(function(s){ if(s[0]>cursor) container.appendChild(document.createTextNode(text.slice(cursor,s[0]))); var b=document.createElement('b'); b.textContent=text.slice(s[0],s[1]); container.appendChild(b); cursor=s[1]; });
+    if(cursor<text.length) container.appendChild(document.createTextNode(text.slice(cursor)));
   }
 
-  function linkLabel(url) {
-    try {
-      return new URL(url).hostname.replace(/^www\./, '');
-    } catch (e) {
-      return 'Link';
-    }
-  }
+  function linkLabel(url) { try { return new URL(url).hostname.replace(/^www\./,''); } catch(e) { return 'Link'; } }
 
-  function pad2(n) {
-    return String(n).padStart(2, '0');
-  }
-
-  function renderPublications(entries, list, imagePrefix) {
-    list.textContent = '';
-
-    entries.forEach(function (entry) {
-      var c = parseCitation(entry.text);
-      var card = document.createElement('article');
-      card.className = 'card pub-card';
-
-      var preferredImage = 'assets/images/publications/' + imagePrefix + '-' + pad2(entry.number) + '.jpg';
-      var legacyImage = entry.legacyImageId
-        ? 'assets/images/publications/' + entry.legacyImageId + '.jpg'
-        : null;
-
-      var img = document.createElement('img');
-      img.src = preferredImage;
-      img.loading = 'lazy';
-      img.alt = c.title ? 'Thumbnail for ' + c.title : 'Publication thumbnail';
-      img.dataset.fallbackStage = '0';
-      img.onerror = function () {
-        if (this.dataset.fallbackStage === '0' && legacyImage) {
-          this.dataset.fallbackStage = '1';
-          this.src = legacyImage;
-          return;
-        }
-        this.onerror = null;
-        this.src = PLACEHOLDER_IMAGE;
+  function renderPublications(entries, list, imageMap) {
+    list.textContent='';
+    entries.forEach(function(entry){
+      var c=parseCitation(entry.text);
+      var card=document.createElement('article'); card.className='card pub-card';
+      var preferred=imageMap[entry.number] ? 'assets/images/publications/'+imageMap[entry.number] : null;
+      var legacy=(entry.legacyImageId && LEGACY_IMAGE_FILES[entry.legacyImageId]) ? 'assets/images/publications/'+LEGACY_IMAGE_FILES[entry.legacyImageId] : null;
+      var img=document.createElement('img');
+      img.src=preferred || legacy || PLACEHOLDER_IMAGE; img.loading='lazy'; img.alt=c.title ? 'Thumbnail for '+c.title : 'Publication thumbnail'; img.dataset.fallbackStage='0';
+      img.onerror=function(){
+        if(this.dataset.fallbackStage==='0' && legacy && this.src.indexOf(legacy)===-1){ this.dataset.fallbackStage='1'; this.src=legacy; return; }
+        this.onerror=null; this.src=PLACEHOLDER_IMAGE;
       };
-
-      var thumb = document.createElement('div');
-      thumb.className = 'pub-thumb';
-
-      if (c.url) {
-        var thumbLink = document.createElement('a');
-        thumbLink.href = c.url;
-        thumbLink.target = '_blank';
-        thumbLink.rel = 'noopener';
-        thumbLink.appendChild(img);
-        thumb.appendChild(thumbLink);
-      } else {
-        thumb.appendChild(img);
-      }
-
-      var body = document.createElement('div');
-      body.className = 'pub-body';
-
-      if (c.title) {
-        var titleEl = document.createElement('div');
-        titleEl.className = 'pub-title';
-        var em = document.createElement('em');
-        em.textContent = '"' + c.title + '"';
-        titleEl.appendChild(em);
-        body.appendChild(titleEl);
-      }
-
-      var authorsEl = document.createElement('div');
-      authorsEl.className = 'pub-authors';
-      boldSelfNames(authorsEl, c.authors);
-      body.appendChild(authorsEl);
-
-      if (c.venue) {
-        var venueEl = document.createElement('div');
-        venueEl.className = 'pub-venue';
-        venueEl.textContent = c.venue;
-        body.appendChild(venueEl);
-      }
-
-      var meta = document.createElement('div');
-      meta.className = 'pub-meta';
-
-      if (c.year) {
-        var yearEl = document.createElement('span');
-        yearEl.className = 'pub-year';
-        yearEl.textContent = c.year;
-        meta.appendChild(yearEl);
-      }
-
-      if (c.url) {
-        var link = document.createElement('a');
-        link.className = 'pub-link';
-        link.href = c.url;
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.textContent = 'Paper · ' + linkLabel(c.url);
-        meta.appendChild(link);
-      }
-
-      if (meta.hasChildNodes()) body.appendChild(meta);
-      card.appendChild(thumb);
-      card.appendChild(body);
-      list.appendChild(card);
+      var thumb=document.createElement('div'); thumb.className='pub-thumb';
+      if(c.url){ var thumbLink=document.createElement('a'); thumbLink.href=c.url; thumbLink.target='_blank'; thumbLink.rel='noopener'; thumbLink.appendChild(img); thumb.appendChild(thumbLink); } else thumb.appendChild(img);
+      var body=document.createElement('div'); body.className='pub-body';
+      if(c.title){ var titleEl=document.createElement('div'); titleEl.className='pub-title'; var em=document.createElement('em'); em.textContent='"'+c.title+'"'; titleEl.appendChild(em); body.appendChild(titleEl); }
+      var authorsEl=document.createElement('div'); authorsEl.className='pub-authors'; boldSelfNames(authorsEl,c.authors); body.appendChild(authorsEl);
+      if(c.venue){ var venueEl=document.createElement('div'); venueEl.className='pub-venue'; venueEl.textContent=c.venue; body.appendChild(venueEl); }
+      var meta=document.createElement('div'); meta.className='pub-meta';
+      if(c.year){ var yearEl=document.createElement('span'); yearEl.className='pub-year'; yearEl.textContent=c.year; meta.appendChild(yearEl); }
+      if(c.url){ var link=document.createElement('a'); link.className='pub-link'; link.href=c.url; link.target='_blank'; link.rel='noopener'; link.textContent='Paper · '+linkLabel(c.url); meta.appendChild(link); }
+      if(meta.hasChildNodes()) body.appendChild(meta);
+      card.appendChild(thumb); card.appendChild(body); list.appendChild(card);
     });
   }
 
-  function loadPublicationList(containerId, file, imagePrefix) {
-    var list = document.getElementById(containerId);
-    if (!list) return;
-
-    fetch(file)
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.text();
-      })
-      .then(function (text) {
-        var entries = parsePublications(text);
-        if (!entries.length) throw new Error('no entries parsed');
-        renderPublications(entries, list, imagePrefix);
-      })
-      .catch(function (err) {
-        list.textContent = '';
-        var p = document.createElement('p');
-        p.className = 'publications-error';
-        p.textContent = 'Could not load publications (' + err.message + ').';
-        list.appendChild(p);
-      });
+  function loadPublicationList(containerId,file,imageMap){
+    var list=document.getElementById(containerId); if(!list) return;
+    fetch(file).then(function(res){ if(!res.ok) throw new Error('HTTP '+res.status); return res.text(); })
+      .then(function(text){ var entries=parsePublications(text); if(!entries.length) throw new Error('no entries parsed'); renderPublications(entries,list,imageMap); })
+      .catch(function(err){ list.textContent=''; var p=document.createElement('p'); p.className='publications-error'; p.textContent='Could not load publications ('+err.message+').'; list.appendChild(p); });
   }
 
   injectHeader();
   injectFooter();
-  loadPublicationList('journal-publications-list', JOURNAL_FILE, 'journal');
-  loadPublicationList('conference-publications-list', CONFERENCE_FILE, 'conference');
+  loadPublicationList('journal-publications-list',JOURNAL_FILE,JOURNAL_IMAGES);
+  loadPublicationList('conference-publications-list',CONFERENCE_FILE,CONFERENCE_IMAGES);
 })();
