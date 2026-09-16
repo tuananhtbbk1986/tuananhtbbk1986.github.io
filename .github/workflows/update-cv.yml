@@ -21,7 +21,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          cat .cv-upload/part*.b64 | base64 -d > /tmp/CV.pdf.gz
+          cat .cv-upload/chunk*.b64 | base64 -d > /tmp/CV.pdf.gz
           gunzip -c /tmp/CV.pdf.gz > assets/files/CV.pdf
           test "$(head -c 4 assets/files/CV.pdf)" = "%PDF"
           echo "CV PDF rebuilt: $(wc -c < assets/files/CV.pdf) bytes"
