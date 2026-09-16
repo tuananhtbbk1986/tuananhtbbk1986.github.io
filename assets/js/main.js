@@ -28,7 +28,8 @@
     { href: 'index.html', label: 'About' },
     { href: 'publications.html', label: 'Publications' },
     { href: 'teaching.html', label: 'Teaching' },
-    { href: 'cv.html', label: 'CV' }
+    { href: 'cv.html', label: 'CV' },
+    { href: 'analytics.html', label: 'Analytics' }
   ];
 
   function currentPage() {
