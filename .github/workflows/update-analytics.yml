@@ -1,0 +1,95 @@
+name: Update website analytics
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 * * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    if: ${{ secrets.UMAMI_API_KEY != '' && secrets.UMAMI_WEBSITE_ID != '' }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build analytics JSON from Umami
+        env:
+          UMAMI_API_KEY: ${{ secrets.UMAMI_API_KEY }}
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.parse, urllib.request
+          from datetime import datetime, timedelta, timezone
+
+          key = os.environ['UMAMI_API_KEY']
+          website_id = os.environ['UMAMI_WEBSITE_ID']
+          base = f'https://api.umami.is/v1/websites/{website_id}'
+          headers = {'Authorization': f'Bearer {key}', 'Accept': 'application/json'}
+
+          now = datetime.now(timezone.utc)
+          end_ms = int(now.timestamp() * 1000)
+          start_30 = now - timedelta(days=30)
+          start_ms = int(start_30.timestamp() * 1000)
+
+          def get(path, params):
+              url = base + path + '?' + urllib.parse.urlencode(params)
+              req = urllib.request.Request(url, headers=headers)
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  return json.load(r)
+
+          stats = get('/stats', {'startAt': start_ms, 'endAt': end_ms})
+          countries = get('/metrics', {'startAt': start_ms, 'endAt': end_ms, 'type': 'country', 'limit': 100})
+          paths = get('/metrics', {'startAt': start_ms, 'endAt': end_ms, 'type': 'path', 'limit': 20})
+          pageviews = get('/pageviews', {'startAt': start_ms, 'endAt': end_ms, 'unit': 'day', 'timezone': 'America/Phoenix'})
+
+          visitors = int(stats.get('visitors') or 0)
+          views = int(stats.get('pageviews') or 0)
+          visits = int(stats.get('visits') or 0)
+          total_time = float(stats.get('totaltime') or 0)
+
+          data = {
+              'connected': True,
+              'updatedAt': now.strftime('%b %d, %Y %H:%M UTC'),
+              'summary': {
+                  'visitors': visitors,
+                  'pageviews': views,
+                  'pagesPerVisit': (views / visits) if visits else 0,
+                  'avgDurationSeconds': (total_time / visits) if visits else 0,
+                  'visitorsNote': 'Last 30 days',
+                  'pageviewsNote': 'Last 30 days'
+              },
+              'countries': [
+                  {'code': str(x.get('x') or ''), 'name': str(x.get('x') or ''), 'visitors': int(x.get('y') or 0)}
+                  for x in countries
+              ],
+              'traffic': [
+                  {'date': str(x.get('x') or '')[:10], 'visitors': int(x.get('y') or 0)}
+                  for x in (pageviews.get('sessions') or [])
+              ],
+              'popularPages': [
+                  {'page': str(x.get('x') or '/'), 'views': int(x.get('y') or 0)}
+                  for x in paths
+              ]
+          }
+
+          os.makedirs('assets/files', exist_ok=True)
+          with open('assets/files/analytics-data.json', 'w', encoding='utf-8') as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+              f.write('\n')
+          PY
+
+      - name: Commit analytics data
+        run: |
+          if git diff --quiet -- assets/files/analytics-data.json; then
+            echo "No analytics changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/files/analytics-data.json
+          git commit -m "Update website analytics"
+          git push
