@@ -1,0 +1,157 @@
+name: Finalize CV update
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.cv-upload/final-trigger.txt'
+
+permissions:
+  contents: write
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install PDF editor
+        run: python -m pip install --quiet pymupdf
+
+      - name: Update CV PDF text
+        shell: bash
+        run: |
+          python - <<'PY'
+          import fitz
+          from pathlib import Path
+
+          pdf = Path('assets/files/CV.pdf')
+          doc = fitz.open(pdf)
+
+          # 1) Update metrics phrase without disturbing the rest of the line.
+          old_metrics = '38 published or accepted peer-reviewed journal articles'
+          new_metrics = '38 published peer-reviewed journal articles'
+          metric_hits = []
+          for pno, page in enumerate(doc):
+              for r in page.search_for(old_metrics):
+                  metric_hits.append((pno, r))
+          if len(metric_hits) != 1:
+              raise RuntimeError(f'Expected exactly one metrics phrase; found {len(metric_hits)}')
+          pno, r = metric_hits[0]
+          page = doc[pno]
+          # Determine nearby font size from text spans; fall back conservatively.
+          size = 7.2
+          for b in page.get_text('dict')['blocks']:
+              for line in b.get('lines', []):
+                  for sp in line.get('spans', []):
+                      sr = fitz.Rect(sp['bbox'])
+                      if sr.intersects(r):
+                          size = min(float(sp['size']), 7.5)
+                          break
+          rr = fitz.Rect(r.x0-0.6, r.y0-0.8, r.x1+1.0, r.y1+0.8)
+          page.add_redact_annot(rr, fill=(1,1,1))
+          page.apply_redactions()
+          page.insert_textbox(rr, new_metrics, fontsize=size, fontname='helv', color=(0,0,0), align=0)
+
+          # 2) Replace publication #1 (the two-line accepted Sensors entry) with published citation.
+          target_page = None
+          lines_to_replace = None
+          original_size = 7.0
+          for pno, page in enumerate(doc):
+              active = False
+              found = []
+              sizes = []
+              for block in page.get_text('dict')['blocks']:
+                  for line in block.get('lines', []):
+                      txt = ''.join(sp.get('text','') for sp in line.get('spans', [])).strip()
+                      if not active and txt.startswith('1. Nguyen L.P.*'):
+                          active = True
+                      if active:
+                          found.append((txt, fitz.Rect(line['bbox'])))
+                          sizes.extend(float(sp['size']) for sp in line.get('spans', []) if sp.get('text','').strip())
+                          if 'Accepted, 2026.' in txt:
+                              target_page = pno
+                              lines_to_replace = found
+                              original_size = min(sizes) if sizes else 7.0
+                              break
+                  if lines_to_replace:
+                      break
+              if lines_to_replace:
+                  break
+          if not lines_to_replace:
+              raise RuntimeError('Could not locate the accepted Sensors publication entry')
+
+          page = doc[target_page]
+          rect = lines_to_replace[0][1]
+          for _, lr in lines_to_replace[1:]:
+              rect |= lr
+          # Use full text-column width and a tiny vertical pad, preserving neighboring entries.
+          rect = fitz.Rect(rect.x0-0.8, rect.y0-0.7, max(rect.x1, page.rect.width-36), rect.y1+0.9)
+          page.add_redact_annot(rect, fill=(1,1,1))
+          page.apply_redactions()
+          citation = ('1. Nguyen L.P.*, Le T.-A.*, Shehu M.A., Shakhin Y., Do T.D. '
+                      'Field-Orientation Effects in Amplitude-Modulation Magnetic Particle Imaging for '
+                      'High-Resolution Navigation. Sensors. 2026;26(17):5420. DOI: 10.3390/s26175420.')
+          # Slightly reduce size only as needed to keep the replacement in the original two-line region.
+          inserted = False
+          for fs in [min(original_size, 7.2), 7.0, 6.8, 6.6, 6.4, 6.2]:
+              # insert_textbox returns a negative value if the text does not fit.
+              rc = page.insert_textbox(rect, citation, fontsize=fs, fontname='helv', color=(0,0,0), align=0)
+              if rc >= 0:
+                  inserted = True
+                  break
+          if not inserted:
+              raise RuntimeError('Published Sensors citation did not fit in the original entry area')
+
+          tmp = pdf.with_suffix('.updated.pdf')
+          doc.save(tmp, garbage=4, deflate=True, clean=True)
+          doc.close()
+          tmp.replace(pdf)
+
+          # Validate the final PDF text.
+          check = fitz.open(pdf)
+          all_text = '\n'.join(p.get_text() for p in check)
+          check.close()
+          must_have = [
+              '38 published peer-reviewed journal articles',
+              'Field-Orientation Effects in Amplitude-Modulation',
+              '2026;26(17):5420',
+              '10.3390/s26175420'
+          ]
+          must_not = ['38 published or accepted peer-reviewed journal articles', 'Accepted, 2026.']
+          for s in must_have:
+              if s not in all_text:
+                  raise RuntimeError(f'Missing expected updated text: {s}')
+          for s in must_not:
+              if s in all_text:
+                  raise RuntimeError(f'Old text still present: {s}')
+          print('CV PDF update validated successfully')
+          PY
+
+      - name: Fix CV web page identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('cv.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('CV · Gia Minh Hoang', 'CV · Tuan-Anh Le')
+          s = s.replace('Curriculum Vitae of Gia Minh Hoang.', 'Curriculum Vitae of Tuan-Anh Le.')
+          s = s.replace('>Gia Minh Hoang</a>', '>Tuan-Anh Le</a>')
+          s = s.replace('Curriculum Vitae of Gia Minh Hoang', 'Curriculum Vitae of Tuan-Anh Le')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit final CV and remove temporary upload files
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .cv-upload
+          rm -f .github/workflows/update-cv.yml .github/workflows/finalize-cv.yml
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A
+          git commit -m 'Update CV and CV page'
+          git push
