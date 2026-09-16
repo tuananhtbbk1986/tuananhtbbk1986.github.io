@@ -126,13 +126,53 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 1.5rem 1.25rem 3rem
 .btn.secondary:hover { background: var(--border); }
 .cv-frame { width: 100%; height: 80vh; min-height: 480px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 
+/* ---------- Analytics ---------- */
+.analytics-head { display: flex; justify-content: space-between; gap: 1.5rem; align-items: flex-start; margin-bottom: 1.5rem; }
+.analytics-head h1 { margin-bottom: 0.35rem; }
+.analytics-subtitle { margin-bottom: 0.15rem; color: var(--text-muted); }
+.analytics-note { margin: 0; color: var(--text-muted); font-size: 0.88rem; }
+.analytics-updated { flex: 0 0 auto; font-size: 0.82rem; color: var(--text-muted); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; padding: 0.35rem 0.75rem; }
+.metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.metric-card { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem; display: flex; gap: 0.85rem; align-items: center; box-shadow: var(--shadow-sm); }
+.metric-icon { width: 3rem; height: 3rem; border-radius: 12px; display: grid; place-items: center; flex: 0 0 3rem; background: var(--accent-soft); color: var(--accent); font-size: 1.5rem; font-weight: 700; }
+.metric-card div:last-child { min-width: 0; display: flex; flex-direction: column; }
+.metric-label { color: var(--text-muted); font-size: 0.85rem; }
+.metric-card strong { font-size: 1.75rem; line-height: 1.15; margin: 0.2rem 0; color: var(--text); }
+.metric-card small { color: var(--text-muted); font-size: 0.72rem; }
+.analytics-panel { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 1rem; }
+.analytics-panel h2 { border: 0; margin: 0 0 0.15rem; padding: 0; font-size: 1.15rem; }
+.analytics-panel p { margin: 0; color: var(--text-muted); font-size: 0.85rem; }
+.panel-title-row { display: flex; justify-content: space-between; gap: 1rem; align-items: flex-start; margin-bottom: 0.85rem; }
+.country-panel { margin-bottom: 1rem; }
+.country-layout { display: grid; grid-template-columns: minmax(0, 1.65fr) minmax(280px, 0.85fr); gap: 1rem; align-items: stretch; }
+.geo-chart { min-height: 360px; display: grid; place-items: center; overflow: hidden; }
+.country-table-wrap { overflow-x: auto; }
+.analytics-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+.analytics-table th { text-align: left; color: var(--text-muted); font-weight: 600; border-bottom: 1px solid var(--border); padding: 0.55rem 0.5rem; }
+.analytics-table td { border-bottom: 1px solid var(--border); padding: 0.6rem 0.5rem; }
+.analytics-table th:last-child,.analytics-table td:last-child { text-align: right; }
+.analytics-empty { color: var(--text-muted); text-align: center; padding: 2rem; border: 1px dashed var(--border); border-radius: var(--radius); background: var(--surface); width: 100%; }
+.analytics-empty-cell { color: var(--text-muted); text-align: center !important; padding: 1.5rem !important; }
+.analytics-lower-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr); gap: 1rem; }
+.traffic-chart { min-height: 300px; display: grid; place-items: center; }
+.range-pill { font-size: 0.78rem; color: var(--text-muted); border: 1px solid var(--border); border-radius: 8px; padding: 0.3rem 0.55rem; background: var(--surface); white-space: nowrap; }
+.popular-table td:first-child { max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
 /* ---------- Footer ---------- */
 .site-footer { border-top: 1px solid var(--border); background: var(--surface); color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 1.25rem; }
 .site-footer a { color: var(--text-muted); }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 900px) {
+  .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .country-layout { grid-template-columns: 1fr; }
+  .analytics-lower-grid { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 760px) {
   .news-grid { grid-template-columns: 1fr; }
+  .analytics-head { flex-direction: column; }
+  .analytics-updated { align-self: flex-start; }
 }
 
 @media (max-width: 640px) {
@@ -150,4 +190,7 @@ main { max-width: var(--max-width); margin: 0 auto; padding: 1.5rem 1.25rem 3rem
   .pub-card { flex-direction: column; }
   .pub-thumb { flex: 0 0 auto; width: 100%; }
   .pub-thumb img { width: 100%; height: auto; max-height: 220px; object-fit: contain; aspect-ratio: auto; }
+  .metric-grid { grid-template-columns: 1fr; }
+  .metric-card strong { font-size: 1.55rem; }
+  .geo-chart { min-height: 260px; }
 }
