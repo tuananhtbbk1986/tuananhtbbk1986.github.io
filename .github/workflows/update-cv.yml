@@ -1,0 +1,54 @@
+name: Update CV
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.cv-upload/**'
+      - '.github/workflows/update-cv.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  update-cv:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Rebuild updated CV PDF
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat .cv-upload/part*.b64 | base64 -d > /tmp/CV.pdf.gz
+          gunzip -c /tmp/CV.pdf.gz > assets/files/CV.pdf
+          test "$(head -c 4 assets/files/CV.pdf)" = "%PDF"
+          echo "CV PDF rebuilt: $(wc -c < assets/files/CV.pdf) bytes"
+
+      - name: Fix CV page identity
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('cv.html')
+          s = p.read_text(encoding='utf-8')
+          s = s.replace('CV · Gia Minh Hoang', 'CV · Tuan-Anh Le')
+          s = s.replace('Curriculum Vitae of Gia Minh Hoang.', 'Curriculum Vitae of Tuan-Anh Le.')
+          s = s.replace('>Gia Minh Hoang</a>', '>Tuan-Anh Le</a>')
+          s = s.replace('Curriculum Vitae of Gia Minh Hoang', 'Curriculum Vitae of Tuan-Anh Le')
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Commit final files and remove temporary payload
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf .cv-upload
+          rm -f .github/workflows/update-cv.yml
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Update CV and CV page"
+          git push
