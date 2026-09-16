@@ -7,6 +7,7 @@
   <meta name="description" content="Website visitor analytics for Tuan-Anh Le's academic website.">
   <link rel="stylesheet" href="assets/css/style.css?v=20260916-analytics1">
   <script src="https://www.gstatic.com/charts/loader.js"></script>
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="98141acc-b145-4bf0-a207-50ff6eefe35a"></script>
 </head>
 <body>
   <header class="site-header">
@@ -27,67 +28,28 @@
     </section>
 
     <section class="metric-grid" aria-label="Visitor summary">
-      <article class="metric-card">
-        <div class="metric-icon">◎</div>
-        <div><span class="metric-label">Total Visitors</span><strong id="metric-visitors">0</strong><small id="metric-visitors-note">Waiting for data</small></div>
-      </article>
-      <article class="metric-card">
-        <div class="metric-icon">◉</div>
-        <div><span class="metric-label">Page Views</span><strong id="metric-pageviews">0</strong><small id="metric-pageviews-note">Waiting for data</small></div>
-      </article>
-      <article class="metric-card">
-        <div class="metric-icon">▤</div>
-        <div><span class="metric-label">Avg. Pages / Visit</span><strong id="metric-pages-per-visit">0.00</strong><small>Across recorded visits</small></div>
-      </article>
-      <article class="metric-card">
-        <div class="metric-icon">◷</div>
-        <div><span class="metric-label">Avg. Visit Duration</span><strong id="metric-duration">0s</strong><small>Across recorded visits</small></div>
-      </article>
+      <article class="metric-card"><div class="metric-icon">◎</div><div><span class="metric-label">Total Visitors</span><strong id="metric-visitors">0</strong><small id="metric-visitors-note">Waiting for data</small></div></article>
+      <article class="metric-card"><div class="metric-icon">◉</div><div><span class="metric-label">Page Views</span><strong id="metric-pageviews">0</strong><small id="metric-pageviews-note">Waiting for data</small></div></article>
+      <article class="metric-card"><div class="metric-icon">▤</div><div><span class="metric-label">Avg. Pages / Visit</span><strong id="metric-pages-per-visit">0.00</strong><small>Across recorded visits</small></div></article>
+      <article class="metric-card"><div class="metric-icon">◷</div><div><span class="metric-label">Avg. Visit Duration</span><strong id="metric-duration">0s</strong><small>Across recorded visits</small></div></article>
     </section>
 
     <section class="analytics-panel country-panel">
-      <div class="panel-title-row">
-        <div>
-          <h2>Visitors by Country</h2>
-          <p>Countries are shaded according to visitor count.</p>
-        </div>
-      </div>
+      <div class="panel-title-row"><div><h2>Visitors by Country</h2><p>Countries are shaded according to visitor count.</p></div></div>
       <div class="country-layout">
-        <div id="geo-chart" class="geo-chart" aria-label="World map of visitor countries">
-          <div class="analytics-empty">Country map will appear after analytics is connected.</div>
-        </div>
-        <div class="country-table-wrap">
-          <table class="analytics-table">
-            <thead><tr><th>#</th><th>Country</th><th>Visitors</th></tr></thead>
-            <tbody id="country-table-body"><tr><td colspan="3" class="analytics-empty-cell">No country data yet</td></tr></tbody>
-          </table>
-        </div>
+        <div id="geo-chart" class="geo-chart" aria-label="World map of visitor countries"><div class="analytics-empty">Country map will appear after analytics is connected.</div></div>
+        <div class="country-table-wrap"><table class="analytics-table"><thead><tr><th>#</th><th>Country</th><th>Visitors</th></tr></thead><tbody id="country-table-body"><tr><td colspan="3" class="analytics-empty-cell">No country data yet</td></tr></tbody></table></div>
       </div>
     </section>
 
     <section class="analytics-lower-grid">
       <article class="analytics-panel">
-        <div class="panel-title-row">
-          <div>
-            <h2>Traffic Over Time</h2>
-            <p>Daily visitors for the most recent 30 days.</p>
-          </div>
-          <span class="range-pill">Last 30 days</span>
-        </div>
+        <div class="panel-title-row"><div><h2>Traffic Over Time</h2><p>Daily visitors for the most recent 30 days.</p></div><span class="range-pill">Last 30 days</span></div>
         <div id="traffic-chart" class="traffic-chart"><div class="analytics-empty">Traffic chart will appear after analytics is connected.</div></div>
       </article>
-
       <article class="analytics-panel">
-        <div class="panel-title-row">
-          <div>
-            <h2>Popular Pages</h2>
-            <p>Most viewed pages on this website.</p>
-          </div>
-        </div>
-        <table class="analytics-table popular-table">
-          <thead><tr><th>Page</th><th>Views</th></tr></thead>
-          <tbody id="popular-pages-body"><tr><td colspan="2" class="analytics-empty-cell">No page data yet</td></tr></tbody>
-        </table>
+        <div class="panel-title-row"><div><h2>Popular Pages</h2><p>Most viewed pages on this website.</p></div></div>
+        <table class="analytics-table popular-table"><thead><tr><th>Page</th><th>Views</th></tr></thead><tbody id="popular-pages-body"><tr><td colspan="2" class="analytics-empty-cell">No page data yet</td></tr></tbody></table>
       </article>
     </section>
   </main>
