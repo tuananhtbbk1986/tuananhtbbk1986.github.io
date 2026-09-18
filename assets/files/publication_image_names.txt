@@ -4,7 +4,7 @@ Naming rule: ABBR_year_DOI-tail.jpg
 Recommended format: JPG, landscape or square, at least 800 px wide.
 
 JOURNAL PUBLICATIONS
-Sensors_2026_MPI-resolution.jpg — Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields — DOI not assigned yet
+Sensors_2026_26175420.jpg — Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields — DOI 10.3390/s26175420
 ARR_2026_70154.jpg — Human-Scale Rotating Magnetic Field Delivery with Permanent Magnets Under Anatomic and Robotic Constraints — DOI 10.1002/adrr.70154
 MethodsX_2026_103906.jpg — Non-Survival Rat Endovascular Testbed for Early-Stage Evaluation of Untethered Magnetic Microrobots — DOI 10.1016/j.mex.2026.103906
 iScience_2026_115007.jpg — Fluoroscopic Control of a Magnetorobotic Capsule for Precision Gastrointestinal Sampling and Delivery — DOI 10.1016/j.isci.2026.115007
