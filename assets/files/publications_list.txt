@@ -1,5 +1,5 @@
 Publications
-1. Nguyen L.P.*, Le T.-A.*, Shehu M.A., Shakhin Y., Do T.D. "Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields." Sensors. Accepted, 2026.
+1. Nguyen L.P.*, Le T.-A.*, Shehu M.A., Shakhin Y., Do T.D. "Improving Spatial Resolution of Amplitude Modulation Magnetic Particle Imaging via Optimal Alignment of Drive and Selection-Gradient Fields." Sensors. 2026;26(17):5420. https://doi.org/10.3390/s26175420
 Image ID: sensors-2026
 2. Le T.-A., Alabay H.H., Anika S., Hoang G.M., Ceylan H. "Human-Scale Rotating Magnetic Field Delivery with Permanent Magnets Under Anatomic and Robotic Constraints." Advanced Robotics Research. 2026, e70154. https://doi.org/10.1002/adrr.70154
 Image ID: 70154
