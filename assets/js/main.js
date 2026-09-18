@@ -13,7 +13,7 @@
   var PLACEHOLDER_IMAGE = 'assets/images/publications/placeholder.svg';
 
   var JOURNAL_IMAGES = {
-    1:'Sensors_2026_MPI-resolution.jpg',
+    1:'Sensors_2026_26175420.jpg',
     2:'ARR_2026_70154.jpg',
     3:'MethodsX_2026_103906.jpg',
     4:'iScience_2026_115007.jpg',
