@@ -198,50 +198,106 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '#floating-dragon{position:fixed;right:max(8px,calc((100vw - 1024px)/2 - 150px));top:110px;width:clamp(92px,8.5vw,138px);z-index:7;pointer-events:none;user-select:none;opacity:.86;will-change:transform,top;filter:drop-shadow(0 8px 16px rgba(16,24,40,.08));}' +
-      '#floating-dragon img{display:block;width:100%;height:auto;animation:dragonDrift 7s ease-in-out infinite;}' +
-      '@keyframes dragonDrift{0%,100%{transform:translateY(0) rotate(.3deg)}50%{transform:translateY(-10px) rotate(-.6deg)}}' +
-      '@media(max-width:1180px){#floating-dragon{right:6px;width:94px;opacity:.74;}}' +
-      '@media(max-width:900px){#floating-dragon{width:74px;opacity:.62;}}' +
-      '@media(max-width:720px){#floating-dragon{display:none!important;}}' +
+      '#vietnam-lotus{position:fixed;right:8px;bottom:8px;width:clamp(120px,12vw,190px);z-index:6;pointer-events:none;user-select:none;opacity:.92;filter:drop-shadow(0 7px 14px rgba(16,24,40,.10));}' +
+      '#vietnam-lotus img{display:block;width:100%;height:auto;border-radius:18px;mix-blend-mode:multiply;}' +
+      '#floating-dragon{position:fixed;left:calc(100vw - 160px);top:110px;width:clamp(95px,9vw,145px);z-index:7;pointer-events:none;user-select:none;opacity:.90;will-change:left,top;transition-property:left,top;transition-timing-function:cubic-bezier(.42,.02,.35,1);filter:drop-shadow(0 7px 14px rgba(16,24,40,.10));}' +
+      '#floating-dragon img{display:block;width:100%;height:auto;border-radius:16px;mix-blend-mode:multiply;animation:dragonBob 5.8s ease-in-out infinite;}' +
+      '@keyframes dragonBob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}' +
+      '@media(max-width:900px){#vietnam-lotus{width:105px;opacity:.82}#floating-dragon{width:82px;opacity:.80}}' +
+      '@media(max-width:640px){#vietnam-lotus{width:82px;right:4px;bottom:4px;opacity:.72}#floating-dragon{display:none!important;}}' +
       '@media(prefers-reduced-motion:reduce){#floating-dragon img{animation:none!important;}}';
     document.head.appendChild(style);
+
+    var lotus = document.createElement('div');
+    lotus.id = 'vietnam-lotus';
+    lotus.setAttribute('aria-hidden', 'true');
+    var lotusImg = document.createElement('img');
+    lotusImg.src = 'assets/images/Sen.jpg?v=20260920-1';
+    lotusImg.alt = '';
+    lotus.appendChild(lotusImg);
+    document.body.appendChild(lotus);
 
     var dragon = document.createElement('div');
     dragon.id = 'floating-dragon';
     dragon.setAttribute('aria-hidden', 'true');
-
     var image = document.createElement('img');
-    image.src = 'assets/images/dragon-lotus.svg?v=20260920-3';
+    image.src = 'assets/images/dragon.jpg?v=20260920-1';
     image.alt = '';
     dragon.appendChild(image);
     document.body.appendChild(dragon);
 
     var timer = null;
+    var lastX = window.innerWidth - 160;
 
-    function reposition() {
-      if (window.innerWidth <= 720) return;
-      var rect = dragon.getBoundingClientRect();
-      var dh = rect.height || 310;
-      var header = document.querySelector('.site-header');
-      var minTop = Math.max(86, header ? header.getBoundingClientRect().bottom + 14 : 86);
-      var maxTop = Math.max(minTop, window.innerHeight - dh - 20);
-      var range = Math.max(0, maxTop - minTop);
-      var target = minTop + Math.random() * range;
-      var duration = 12 + Math.random() * 7;
-
-      dragon.style.transition = 'top ' + duration + 's ease-in-out';
-      dragon.style.top = Math.round(target) + 'px';
-
-      clearTimeout(timer);
-      timer = setTimeout(reposition, duration * 1000 + 900);
+    function overlaps(a, b, pad) {
+      return !(a.right + pad < b.left || a.left - pad > b.right || a.bottom + pad < b.top || a.top - pad > b.bottom);
     }
 
-    image.addEventListener('load', function(){ setTimeout(reposition, 600); });
-    image.addEventListener('error', function(){ dragon.style.display = 'none'; });
-    window.addEventListener('resize', function(){
+    function blockedRects() {
+      var selectors = [
+        '.site-header','main h1','main h2','main h3','main p','main li',
+        '.hero-photo','.icons','.card','.news-card','.timeline-content',
+        '.pub-card','.cv-frame','.cv-actions','.analytics-embed-card',
+        '.analytics-page-head','.analytics-actions','#vietnam-lotus'
+      ].join(',');
+      return Array.prototype.slice.call(document.querySelectorAll(selectors))
+        .filter(function(el){ return el.offsetParent !== null; })
+        .map(function(el){ return el.getBoundingClientRect(); });
+    }
+
+    function findOpenPosition(dw, dh, minY, maxX, maxY) {
+      var blocks = blockedRects();
+      var margin = 16;
+      var pad = 16;
+      var fallback = {x:Math.max(margin,maxX), y:minY};
+
+      for (var i=0;i<60;i++) {
+        var x, edge=Math.random();
+        if(edge<0.42) x=margin + Math.random()*Math.max(1,Math.min(150,maxX-margin));
+        else if(edge<0.84) x=Math.max(margin,maxX-Math.random()*Math.max(1,Math.min(150,maxX-margin)));
+        else x=margin+Math.random()*Math.max(1,maxX-margin);
+
+        var y=minY+Math.random()*Math.max(1,maxY-minY);
+        var c={left:x,top:y,right:x+dw,bottom:y+dh};
+        if(!blocks.some(function(b){return overlaps(c,b,pad);})){
+          return {x:x,y:y};
+        }
+      }
+      return fallback;
+    }
+
+    function moveDragon(){
+      if(window.innerWidth<=640) return;
+
+      var rect=dragon.getBoundingClientRect();
+      var dw=rect.width||120;
+      var dh=rect.height||120;
+      var margin=16;
+      var header=document.querySelector('.site-header');
+      var minY=Math.max(82,header?header.getBoundingClientRect().bottom+12:82);
+      var maxX=Math.max(margin,window.innerWidth-dw-margin);
+      var maxY=Math.max(minY,window.innerHeight-dh-margin);
+      var pos=findOpenPosition(dw,dh,minY,maxX,maxY);
+      var duration=13+Math.random()*8;
+
+      dragon.style.transitionDuration=duration+'s';
+      dragon.style.left=Math.round(pos.x)+'px';
+      dragon.style.top=Math.round(pos.y)+'px';
+
+      image.style.transform=pos.x<lastX?'scaleX(-1)':'scaleX(1)';
+      lastX=pos.x;
+
       clearTimeout(timer);
-      reposition();
+      timer=setTimeout(moveDragon,duration*1000+900);
+    }
+
+    image.addEventListener('load',function(){setTimeout(moveDragon,500);});
+    image.addEventListener('error',function(){dragon.style.display='none';});
+    lotusImg.addEventListener('error',function(){lotus.style.display='none';});
+
+    window.addEventListener('resize',function(){
+      clearTimeout(timer);
+      moveDragon();
     });
   }
 
