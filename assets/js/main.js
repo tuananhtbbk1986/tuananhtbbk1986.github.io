@@ -198,13 +198,13 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '#vietnam-lotus{position:fixed;right:8px;bottom:8px;width:clamp(120px,12vw,190px);z-index:6;pointer-events:none;user-select:none;opacity:.92;filter:drop-shadow(0 7px 14px rgba(16,24,40,.10));}' +
+      '#vietnam-lotus{position:fixed;right:0;bottom:-6px;width:clamp(300px,30vw,475px);z-index:6;pointer-events:none;user-select:none;opacity:.92;filter:drop-shadow(0 7px 14px rgba(16,24,40,.10));}' +
       '#vietnam-lotus img{display:block;width:100%;height:auto;border-radius:18px;mix-blend-mode:multiply;}' +
       '#floating-dragon{position:fixed;left:calc(100vw - 160px);top:110px;width:clamp(95px,9vw,145px);z-index:7;pointer-events:none;user-select:none;opacity:.90;will-change:left,top;transition-property:left,top;transition-timing-function:cubic-bezier(.42,.02,.35,1);filter:drop-shadow(0 7px 14px rgba(16,24,40,.10));}' +
       '#floating-dragon img{display:block;width:100%;height:auto;border-radius:16px;mix-blend-mode:multiply;animation:dragonBob 5.8s ease-in-out infinite;}' +
       '@keyframes dragonBob{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}' +
-      '@media(max-width:900px){#vietnam-lotus{width:105px;opacity:.82}#floating-dragon{width:82px;opacity:.80}}' +
-      '@media(max-width:640px){#vietnam-lotus{width:82px;right:4px;bottom:4px;opacity:.72}#floating-dragon{display:none!important;}}' +
+      '@media(max-width:900px){#vietnam-lotus{width:260px;opacity:.82}#floating-dragon{width:82px;opacity:.80}}' +
+      '@media(max-width:640px){#vietnam-lotus{width:180px;right:0;bottom:-4px;opacity:.72}#floating-dragon{display:none!important;}}' +
       '@media(prefers-reduced-motion:reduce){#floating-dragon img{animation:none!important;}}';
     document.head.appendChild(style);
 
