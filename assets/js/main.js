@@ -198,10 +198,11 @@
 
     var style = document.createElement('style');
     style.textContent =
-      '#floating-dragon{position:fixed;left:calc(100vw - 150px);top:110px;width:clamp(92px,9vw,138px);z-index:8;pointer-events:none;user-select:none;opacity:.84;transition-property:left,top;transition-timing-function:cubic-bezier(.45,.05,.35,1);will-change:left,top;filter:drop-shadow(0 7px 12px rgba(16,24,40,.10));}' +
+      '#floating-dragon{position:fixed;left:calc(100vw - 150px);top:110px;width:clamp(88px,8vw,126px);z-index:8;pointer-events:none;user-select:none;opacity:.82;transition-property:left,top;transition-timing-function:cubic-bezier(.45,.05,.35,1);will-change:left,top;filter:drop-shadow(0 6px 10px rgba(16,24,40,.10));}' +
       '#floating-dragon img{display:block;width:100%;height:auto;transform-origin:center;animation:dragonBob 5.2s ease-in-out infinite;}' +
-      '@keyframes dragonBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}' +
-      '@media(max-width:640px){#floating-dragon{width:76px;opacity:.72;}}' +
+      '@keyframes dragonBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-8px) rotate(2deg)}}' +
+      '@media(max-width:760px){#floating-dragon{width:70px;opacity:.70;}}' +
+      '@media(max-width:520px){#floating-dragon{display:none!important;}}' +
       '@media(prefers-reduced-motion:reduce){#floating-dragon{display:none!important;}}';
     document.head.appendChild(style);
 
@@ -210,7 +211,7 @@
     dragon.setAttribute('aria-hidden', 'true');
 
     var image = document.createElement('img');
-    image.src = 'assets/images/dragon-lotus.svg';
+    image.src = 'assets/images/dragon-lotus.svg?v=20260920-2';
     image.alt = '';
     dragon.appendChild(image);
     document.body.appendChild(dragon);
@@ -218,33 +219,78 @@
     var lastX = window.innerWidth - 150;
     var timer = null;
 
+    function overlaps(a, b, pad) {
+      return !(a.right + pad < b.left || a.left - pad > b.right || a.bottom + pad < b.top || a.top - pad > b.bottom);
+    }
+
+    function blockedRects() {
+      var selectors = [
+        '.site-header', 'main h1', 'main h2', 'main h3', 'main p', 'main li',
+        '.hero-photo', '.icons', '.card', '.news-card', '.timeline-content',
+        '.pub-card', '.cv-frame', '.cv-actions', '.analytics-embed-card',
+        '.analytics-page-head', '.analytics-actions'
+      ].join(',');
+      return Array.prototype.slice.call(document.querySelectorAll(selectors))
+        .filter(function(el){ return el.offsetParent !== null; })
+        .map(function(el){ return el.getBoundingClientRect(); });
+    }
+
+    function findOpenPosition(dw, dh, minY, maxX, maxY) {
+      var blocks = blockedRects();
+      var margin = 16;
+      var pad = 14;
+      var best = null;
+
+      for (var i = 0; i < 40; i++) {
+        var edgeBias = Math.random();
+        var x;
+        if (edgeBias < 0.36) {
+          x = margin + Math.random() * Math.max(1, Math.min(150, maxX - margin));
+        } else if (edgeBias < 0.72) {
+          x = Math.max(margin, maxX - Math.random() * Math.max(1, Math.min(150, maxX - margin)));
+        } else {
+          x = margin + Math.random() * Math.max(1, maxX - margin);
+        }
+
+        var y = minY + Math.random() * Math.max(1, maxY - minY);
+        var candidate = {left:x, top:y, right:x+dw, bottom:y+dh};
+        var hit = blocks.some(function(b){ return overlaps(candidate, b, pad); });
+        if (!hit) return {x:x, y:y};
+        if (!best) best = {x:x, y:y};
+      }
+
+      return best || {x:Math.max(margin, maxX), y:minY + 20};
+    }
+
     function moveDragon() {
+      if (window.innerWidth <= 520) return;
+
       var rect = dragon.getBoundingClientRect();
-      var dw = rect.width || 120;
-      var dh = rect.height || 90;
-      var margin = 18;
+      var dw = rect.width || 110;
+      var dh = rect.height || 82;
+      var margin = 16;
       var header = document.querySelector('.site-header');
       var headerBottom = header ? header.getBoundingClientRect().bottom : 70;
       var minY = Math.max(headerBottom + 12, 82);
       var maxX = Math.max(margin, window.innerWidth - dw - margin);
       var maxY = Math.max(minY, window.innerHeight - dh - margin);
-
-      var x = margin + Math.random() * Math.max(1, maxX - margin);
-      var y = minY + Math.random() * Math.max(1, maxY - minY);
-      var duration = 13 + Math.random() * 7;
+      var pos = findOpenPosition(dw, dh, minY, maxX, maxY);
+      var duration = 14 + Math.random() * 7;
 
       dragon.style.transitionDuration = duration + 's';
-      dragon.style.left = Math.round(x) + 'px';
-      dragon.style.top = Math.round(y) + 'px';
+      dragon.style.left = Math.round(pos.x) + 'px';
+      dragon.style.top = Math.round(pos.y) + 'px';
 
-      image.style.transform = x < lastX ? 'scaleX(-1)' : 'scaleX(1)';
-      lastX = x;
+      image.style.transform = pos.x < lastX ? 'scaleX(-1)' : 'scaleX(1)';
+      lastX = pos.x;
 
       clearTimeout(timer);
-      timer = setTimeout(moveDragon, duration * 1000 + 700);
+      timer = setTimeout(moveDragon, duration * 1000 + 800);
     }
 
-    setTimeout(moveDragon, 700);
+    image.addEventListener('load', function(){ setTimeout(moveDragon, 500); });
+    image.addEventListener('error', function(){ dragon.style.display = 'none'; });
+
     window.addEventListener('resize', function () {
       clearTimeout(timer);
       moveDragon();
