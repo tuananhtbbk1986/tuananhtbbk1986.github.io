@@ -193,8 +193,67 @@
       .catch(function(err){ list.textContent=''; var p=document.createElement('p'); p.className='publications-error'; p.textContent='Could not load publications ('+err.message+').'; list.appendChild(p); });
   }
 
+  function initFloatingDragon() {
+    if (document.getElementById('floating-dragon')) return;
+
+    var style = document.createElement('style');
+    style.textContent =
+      '#floating-dragon{position:fixed;left:calc(100vw - 150px);top:110px;width:clamp(92px,9vw,138px);z-index:8;pointer-events:none;user-select:none;opacity:.84;transition-property:left,top;transition-timing-function:cubic-bezier(.45,.05,.35,1);will-change:left,top;filter:drop-shadow(0 7px 12px rgba(16,24,40,.10));}' +
+      '#floating-dragon img{display:block;width:100%;height:auto;transform-origin:center;animation:dragonBob 5.2s ease-in-out infinite;}' +
+      '@keyframes dragonBob{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-9px) rotate(2deg)}}' +
+      '@media(max-width:640px){#floating-dragon{width:76px;opacity:.72;}}' +
+      '@media(prefers-reduced-motion:reduce){#floating-dragon{display:none!important;}}';
+    document.head.appendChild(style);
+
+    var dragon = document.createElement('div');
+    dragon.id = 'floating-dragon';
+    dragon.setAttribute('aria-hidden', 'true');
+
+    var image = document.createElement('img');
+    image.src = 'assets/images/dragon-lotus.svg';
+    image.alt = '';
+    dragon.appendChild(image);
+    document.body.appendChild(dragon);
+
+    var lastX = window.innerWidth - 150;
+    var timer = null;
+
+    function moveDragon() {
+      var rect = dragon.getBoundingClientRect();
+      var dw = rect.width || 120;
+      var dh = rect.height || 90;
+      var margin = 18;
+      var header = document.querySelector('.site-header');
+      var headerBottom = header ? header.getBoundingClientRect().bottom : 70;
+      var minY = Math.max(headerBottom + 12, 82);
+      var maxX = Math.max(margin, window.innerWidth - dw - margin);
+      var maxY = Math.max(minY, window.innerHeight - dh - margin);
+
+      var x = margin + Math.random() * Math.max(1, maxX - margin);
+      var y = minY + Math.random() * Math.max(1, maxY - minY);
+      var duration = 13 + Math.random() * 7;
+
+      dragon.style.transitionDuration = duration + 's';
+      dragon.style.left = Math.round(x) + 'px';
+      dragon.style.top = Math.round(y) + 'px';
+
+      image.style.transform = x < lastX ? 'scaleX(-1)' : 'scaleX(1)';
+      lastX = x;
+
+      clearTimeout(timer);
+      timer = setTimeout(moveDragon, duration * 1000 + 700);
+    }
+
+    setTimeout(moveDragon, 700);
+    window.addEventListener('resize', function () {
+      clearTimeout(timer);
+      moveDragon();
+    });
+  }
+
   injectHeader();
   injectFooter();
   loadPublicationList('journal-publications-list',JOURNAL_FILE,JOURNAL_IMAGES);
   loadPublicationList('conference-publications-list',CONFERENCE_FILE,CONFERENCE_IMAGES);
+  initFloatingDragon();
 })();
